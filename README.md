@@ -59,3 +59,7 @@ This is very preliminary...
 * Be able to generate a report of all notes, organized by keyword
 * Be able to report notes by mention/keywords selectively
 * Report of all notes in topological order
+
+## Resources
+* https://www.ntu.edu.sg/home/ehchua/programming/howto/Regexe.html
+* http://www.newthinktank.com/2012/02/java-video-tutorial-19/
