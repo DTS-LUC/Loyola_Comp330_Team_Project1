@@ -1,92 +1,70 @@
+import java.util.ArrayList;
+
 public class Note {
 
-  ArrayList<String> mentions = new ArrayList<String>(); // '@'
-  ArrayList<String> topics = new ArrayList<String>();   // '#'
-  ArrayList<String> urls = new ArrayList<String>();     // ''
-  ArrayList<String> refs = new ArrayList<String>();     // '^'
+  private ArrayList<String> mentions = new ArrayList<String>(); // '@'
+  private ArrayList<String> topics = new ArrayList<String>();   // '#'
+  private ArrayList<String> urls = new ArrayList<String>();     // ''
+  private ArrayList<String> refs = new ArrayList<String>();     // '^'
 
-  Private String id;  // '!'
+  private String id;  // '!'
+  private String text;
 
-  public Note(ArrayList<String> mentions, ArrayList<String> topics, ArrayList<String> urls, ArrayList<String> refs, String id){
+  public Note(ArrayList<String> mentions, ArrayList<String> topics, ArrayList<String> urls, ArrayList<String> refs, String id, String text){
       this.mentions = mentions;
       this.topics = topics;
       this.urls = urls;
-      this.ref = refs;
+      this.refs = refs;
       this.id = id;
+      this.text = text;
   }
-
-  // Recieves an Arraylist to set mentions
-  public void setMentions(ArrayList mentions){
-
-    }
 
   // Returns an ArrayList of all mentions
   public ArrayList<String> getMentions(){
       return mentions;
     }
 
-  // Returns index of first meniton if a match is located; Else return -1
-  public int findMention(){
-
-    }
-
-  // Recieves an Arraylist to set topics
-  public void setTopics(ArrayList topics){
-
-    }
-
   // Returns an ArrayList of all topics
   public ArrayList<String> getTopics(){
-      return topics
-    }
-
-  // Returns index of first topic if a match is located; Else return -1
-  public int findTopic(){
-
-    }
-
-  // Recieves an Arraylist to set urls
-  public void setURLs(ArrayList urls){
-
+      return topics;
     }
 
   // Returns an ArrayList of all urls
   public ArrayList<String> getURLs(){
-      return urls
+      return urls;
+    }
+
+  // Returns an ArrayList of all refs
+  public ArrayList<String> getRefs(){
+      return refs;
+    }
+
+  // Returns ID
+  public String getID(){
+      return id;
+    }
+  // Returns full text
+  public String getText(){
+      return text;
+    }
+
+  // Returns index of first topic if a match is located; Else return -1
+  public int findTopic(String topic){
+      return topics.indexOf(topic);
+    }
+
+  // Returns index of first meniton if a match is located; Else return -1
+  public int findMention(String mention){
+      return mentions.indexOf(mention);
     }
 
   // Returns index of first URL if a match is located; Else return -1
-  public int findURL(){
-
+  public int findURL(String url){
+      return urls.indexOf(url);
     }
 
-
-
-
-  public getID(){
-
+  // Returns index of first URL if a match is located; Else return -1
+  public int findRef(String ref){
+      return refs.indexOf(ref);
     }
-
-  public void setID(String id){
-
-    }
-
-
-  // public getRefs(){
-  //
-  //   }
-  //
-  // public void setRefs(ArrayList refs){
-  //
-  //   }
-
-
-  public String getText(){
-
-    }
-
-  public void setText(){
-
-    }
-
 }
