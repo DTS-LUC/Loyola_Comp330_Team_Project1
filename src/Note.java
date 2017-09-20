@@ -3,13 +3,17 @@ public class Note {
   ArrayList<String> mentions = new ArrayList<String>(); // '@'
   ArrayList<String> topics = new ArrayList<String>();   // '#'
   ArrayList<String> urls = new ArrayList<String>();     // ''
+  ArrayList<String> refs = new ArrayList<String>();     // '^'
 
   Private String id;  // '!'
-  // TODO: references; Most likely using nodes
 
-  // TODO: Add constructor
-
-  // TODO: create Class methods
+  public Note(ArrayList<String> mentions, ArrayList<String> topics, ArrayList<String> urls, ArrayList<String> refs, String id){
+      this.mentions = mentions;
+      this.topics = topics;
+      this.urls = urls;
+      this.ref = refs;
+      this.id = id;
+  }
 
   // Recieves an Arraylist to set mentions
   public void setMentions(ArrayList mentions){
@@ -17,8 +21,8 @@ public class Note {
     }
 
   // Returns an ArrayList of all mentions
-  public getMentions(){
-
+  public ArrayList<String> getMentions(){
+      return mentions;
     }
 
   // Returns index of first meniton if a match is located; Else return -1
@@ -32,8 +36,8 @@ public class Note {
     }
 
   // Returns an ArrayList of all topics
-  public getTopics(){
-
+  public ArrayList<String> getTopics(){
+      return topics
     }
 
   // Returns index of first topic if a match is located; Else return -1
@@ -47,8 +51,8 @@ public class Note {
     }
 
   // Returns an ArrayList of all urls
-  public getURLs(){
-
+  public ArrayList<String> getURLs(){
+      return urls
     }
 
   // Returns index of first URL if a match is located; Else return -1
