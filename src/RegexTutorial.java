@@ -1,10 +1,11 @@
 import java.util.regex.*;
+import java.util.ArrayList;
 
 public class RegexTutorial {
 
   public static void main(String[] args) {
 
-    String longString = " @Derek9 Banas CA 12345 PA (412)555-1212 @johnsmith @hotmail_com 412-555-1234 412 555-1234 ";
+    String longString = " @Derek9 Banas CA 12345 PA (412)555-1212 @johnsmith @hotmail_com 412-555-1234 412 555-1234 #This is great #NOway";
     String strangeString = " 1Z !aaa !!! **** *** {{{ {{ { ";
 
     /*
@@ -43,24 +44,25 @@ public class RegexTutorial {
     // Must start with @ identifier
     // Then a letter followed by zero or more letters or digits
     // Underscores and hyphens may be used in identifiers anywhere a letter is permitted
-    regexChecker("@[a-zA-Z_][0-9a-zA-Z_]{2,20}\\s", longString);
+    regexChecker("@[a-zA-Z_][0-9a-zA-Z_]*", longString);
+    regexChecker("#[a-zA-Z_][0-9a-zA-Z_]*", longString);
   }
 
   public static void regexChecker(String theRegex, String str2Check){
 
-    Pattern checkRegex = Pattern.compile(theRegex);
+    ArrayList<String> matches = new ArrayList<String>();
 
+    Pattern checkRegex = Pattern.compile(theRegex);
     Matcher regexMatcher = checkRegex.matcher(str2Check);
 
     while(regexMatcher.find()){
       if (regexMatcher.group().length() != 0) {
-        System.out.println(regexMatcher.group().trim());
+        matches.add(regexMatcher.group().trim());
       }
-
-      System.out.println("Start index: " + regexMatcher.start());
-      System.out.println("End index: " + regexMatcher.end());
     }
 
-    System.out.println();
+    for(String m:matches) {
+            System.out.println(m);
+        }
   }
 }
