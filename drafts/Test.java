@@ -45,20 +45,7 @@ public class Test{
 
     for(String m:mentionKeys) {
         // keys match to an ArrayList so that multiple values can be stored
-          // check if value exists
 
-          if (mentions.containsKey(m)){
-            // True: Add to ArrayList
-            temp = mentions.get(m);
-            temp.add(fileName);
-            mentions.put(m, temp);
-          }
-          else {
-            temp.clear();
-            // False: Add key value
-            temp.add(fileName);
-            mentions.put(m, temp);
-          }
         }
   }
 
@@ -67,8 +54,6 @@ public class Test{
 
     String tempText = "";
     for(String file:files){
-      System.out.println(file);
-      tempText = readFile(file);
       // setMentions(file, mentions);
     }
 
