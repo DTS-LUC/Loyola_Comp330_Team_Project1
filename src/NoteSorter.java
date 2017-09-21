@@ -3,15 +3,15 @@ import java.util.*;
 
 public class NoteSorter{
 
-	public sortMentions TreeMap<String,ArrayList<String>>(TreeMap<String,String> files){
+	public TreeMap<String,ArrayList<String>> sortMentions(HashMap<String,String> files){
 		// TreeMap store list of all mentions
 		// Key: @identifier Value: fileName(s);
 		// Key: String			Value: Arraylist to dynamically add Strings
 		TreeMap<String,ArrayList<String>> mentions = new TreeMap<String,ArrayList<String>>(); // '@'
 
-		ArrayList<String> mentionKeys = new ArrayList<String>();
-		ArrayList<String> temp = new ArrayList<String>();
+		HashSet<String> mentionKeys = new HashSet<String>();
 
+		ArrayList<String> tempList;
 		String fileName;
 		// Loop through files
 		for(Map.Entry<String,String> file : files.entrySet()) {
@@ -23,29 +23,32 @@ public class NoteSorter{
 				// check if value exists
 				if (mentions.containsKey(m)){
 					// True: Add to ArrayList
-					temp = mentions.get(m);
-					temp.add(fileName);
-					mentions.put(m, temp);
+					tempList = new ArrayList<String>();
+					tempList = mentions.get(m);
+					tempList.add(fileName);
+					mentions.put(m, tempList);
+					// System.out.println(tempList);
 				}
 				else {
-					// False: Add key value
-					temp.add(fileName);
-					mentions.put(m, temp);
+					// False: Add key - value
+					tempList = new ArrayList<String>();
+					tempList.add(fileName);
+					mentions.put(m, tempList);
+					// System.out.println(mentions);
 				}
-				temp.clear();
 			}
 		}
 
 		return mentions;
 	}
 
-	public static ArrayList<String> regexChecker(String theRegex, String str2Check){
+	public static HashSet<String> regexChecker(String theRegex, String str2Check){
 
-		ArrayList<String> matches = new ArrayList<String>();
+		HashSet<String> matches = new HashSet<String>();
 
 		Pattern checkRegex = Pattern.compile(theRegex);
 		Matcher regexMatcher = checkRegex.matcher(str2Check);
-
+		// System.out.println("Checking: " + fileName);
 		while(regexMatcher.find()){
 			if (regexMatcher.group().length() != 0) {
 				matches.add(regexMatcher.group().trim());
@@ -54,7 +57,7 @@ public class NoteSorter{
 		// for(String m:matches) {
 		// 	System.out.println(m);
 		// }
-		// System.out.println(matches);
+		// System.out.println(matches + " Regex Checker");
 		return matches;
 	}
 }

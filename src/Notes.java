@@ -10,7 +10,4 @@ public class Notes{
 		this.mentions = mentions;
 	}
 
-
-
-
 }
