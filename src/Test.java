@@ -18,15 +18,12 @@
 // TODO: Replace Note with TreeMaps
 import java.util.regex.*;
 
-public class NoteSorter{
-
+public class Test{
   public void SortNotes(String[] files){
     // Create a sorted hash map
     TreeMap mentions = new TreeMap();
-    // TreeMap topics = new TreeMap();
 
     ArrayList<String> mentionKeys = new ArrayList<String>();
-    // ArrayList<String> topicKeys = new ArrayList<String>();
 
     // Check for '@' mentions
     mentionKeys = regexChecker("@[a-zA-Z_][0-9a-zA-Z_]*", /*file*/);
@@ -42,13 +39,7 @@ public class NoteSorter{
             mentions.put(m, /*file*/);
           }
         }
-
-    // // Check for '#' mentions
-    // topicKeys = regexChecker("#[a-zA-Z_][0-9a-zA-Z_]*", /*file*/);
-    //
-    //
-    // // Check for '!' id
-    // regexChecker("![a-zA-Z_][0-9a-zA-Z_]*", /*file*/);
+    System.out.println(mentions);
   }
 
   public static ArrayList<String> regexChecker(String theRegex, String str2Check){
@@ -69,19 +60,8 @@ public class NoteSorter{
         }
     return matches;
     }
-  }
 
   public static void main(String[] args) {
-    // First: Select directory to upload files
-    // Array of Strings
-
-    // Second: Parse files with Regex
-    // Third : Store in sorted maps
-
-    // Fourth: User Interface
-    //while loop
-    // Ask user how to Sort
-    // Switch statements for commands
-    //  Follow up request for data if needed
+    
   }
 }
