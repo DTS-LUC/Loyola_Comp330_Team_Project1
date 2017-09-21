@@ -3,43 +3,47 @@ import java.util.*;
 
 public class NoteSorter{
 
-	public TreeMap<String,ArrayList<String>> sortMentions(HashMap<String,String> files){
-		// TreeMap store list of all mentions
-		// Key: @identifier Value: fileName(s);
-		// Key: String			Value: Arraylist to dynamically add Strings
-		TreeMap<String,ArrayList<String>> mentions = new TreeMap<String,ArrayList<String>>(); // '@'
+	// public String findID(HashMap<String,String> files, String regPattern){
+	//
+	// }
 
-		HashSet<String> mentionKeys = new HashSet<String>();
+	public TreeMap<String,ArrayList<String>> sort(HashMap<String,String> files, String regPattern){
+		// TreeMap store list of all identifiers
+		// Key: identifier 	Value: fileName(s);
+		// Key: String			Value: Arraylist to dynamically add Strings
+		TreeMap<String,ArrayList<String>> tm = new TreeMap<String,ArrayList<String>>(String.CASE_INSENSITIVE_ORDER); // '@'
+
+		HashSet<String> tmKeys = new HashSet<String>();
 
 		ArrayList<String> tempList;
 		String fileName;
 		// Loop through files
 		for(Map.Entry<String,String> file : files.entrySet()) {
   		fileName = file.getKey();
-			//Get all mentions from the file text with regexChecker
-			mentionKeys = regexChecker("@[a-zA-Z_][0-9a-zA-Z_]*", file.getValue());
-			// Add mention keys to mentions TreeMap
-			for(String m:mentionKeys) {
+			//Get all identifiers from the file text with regexChecker
+			tmKeys = regexChecker(regPattern, file.getValue());
+			// Add mention keys to tm TreeMap
+			for(String m:tmKeys) {
 				// check if value exists
-				if (mentions.containsKey(m)){
+				if (tm.containsKey(m)){
 					// True: Add to ArrayList
 					tempList = new ArrayList<String>();
-					tempList = mentions.get(m);
+					tempList = tm.get(m);
 					tempList.add(fileName);
-					mentions.put(m, tempList);
+					tm.put(m, tempList);
 					// System.out.println(tempList);
 				}
 				else {
 					// False: Add key - value
 					tempList = new ArrayList<String>();
 					tempList.add(fileName);
-					mentions.put(m, tempList);
-					// System.out.println(mentions);
+					tm.put(m, tempList);
+					// System.out.println(tm);
 				}
 			}
 		}
 
-		return mentions;
+		return tm;
 	}
 
 	public static HashSet<String> regexChecker(String theRegex, String str2Check){
@@ -54,10 +58,6 @@ public class NoteSorter{
 				matches.add(regexMatcher.group().trim());
 			}
 		}
-		// for(String m:matches) {
-		// 	System.out.println(m);
-		// }
-		// System.out.println(matches + " Regex Checker");
 		return matches;
 	}
 }
