@@ -2,7 +2,7 @@
 ###### Team T - Donald Stolz & Michael Sukantawanich
 
 ## User Instructions
-1. Compile files in src folder using "javac *.java"
+1. Compile files in *src* folder using "javac *.java"
 2. Run program using "java NoteTakerApp"
 3. Input the desired file path
 4. Use commands from list below to sort notes
