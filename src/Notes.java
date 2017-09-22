@@ -1,4 +1,4 @@
-import java.util.*;
+ import java.util.*;
 
 public class Notes{
 	// Key: @identifier Value: fileNames
@@ -18,15 +18,11 @@ public class Notes{
 	public void setTopics(TreeMap<String,ArrayList<String>> topics){
 		this.topics = topics;
 	}
-	// public void setURLSs(TreeMap<String,ArrayList<String>> urls){
-	// 	this.urls = urls;
-	// }
+	 
 	public void setIDs(TreeMap<String,String> ids){
 		this.ids = ids;
 	}
-	// public void setRefs(TreeMap<String,ArrayList<String>> refs){
-	// 	this.refs = refs;
-	// }
+	 
 
 	// Methods for retrieving all values
 	public TreeMap<String,ArrayList<String>> getAllMentions(){
@@ -38,10 +34,7 @@ public class Notes{
 	public TreeMap<String,String> getAllIDs(){
 		return ids;
 	}
-	// public TreeMap<String,ArrayList<String>> getAllRefs(){
-	// 	return refs;
-	// }
-
+ 
 	// Methods for retrieving select value
 	public TreeMap<String,ArrayList<String>> getMentions(ArrayList<String> search){
 		search.remove(0);
@@ -49,8 +42,8 @@ public class Notes{
 		ArrayList<String> selected;
 
 		for(String s:search) {
-			selected = new ArrayList<String>(mentions.get("@" + s));
-			selection.put("@" + s, selected);
+			selected = new ArrayList<String>(mentions.get(s));
+			selection.put( s, selected);
 		}
 
 		return selection;
@@ -62,8 +55,8 @@ public class Notes{
 
 		for(String s:search) {
 			selected = new ArrayList<String>();
-			selected = mentions.get("#" + s);
-			selection.put("#" + s, selected);
+			selected = mentions.get(  s);
+			selection.put(  s, selected);
 		}
 
 		return selection;
@@ -74,8 +67,8 @@ public class Notes{
 		String selected;
 
 		for(String s:search) {
-			selected = ids.get("!" + s);
-			selection.put("!" + s, selected);
+			selected = ids.get(   s);
+			selection.put(  s, selected);
 		}
 
 		return selection;
