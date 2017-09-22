@@ -105,6 +105,7 @@ public class NoteTakerApp{
 						// printTree(notes.getURLs(listArgs));
 					case "!" :
 						printIDs(notes.getIDs(listArgs));
+						break;
 					case "Q" :
 					case "q" :
 						runApp = false;
