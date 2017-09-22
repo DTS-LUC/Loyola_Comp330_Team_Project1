@@ -3,9 +3,29 @@ import java.util.*;
 
 public class NoteSorter{
 
-	// public ArrayList<String> getIDs(HashMap<String,String> files){
-	//
-	// }
+	public TreeMap<String, String> getIDs(HashMap<String,String> files){
+		TreeMap<String,String> tm = new TreeMap<String,String>(String.CASE_INSENSITIVE_ORDER);
+
+		HashSet<String> tmKeys = new HashSet<String>();
+
+		String fileName;
+		// Loop through files
+		for(Map.Entry<String,String> file : files.entrySet()) {
+			fileName = file.getKey();
+			//Get all identifiers from the file text with regexChecker
+			tmKeys = regexChecker("![a-zA-Z_][0-9a-zA-Z_]*", file.getValue());
+			// Add mention keys to tm TreeMap
+			for(String m:tmKeys) {
+				// check if value exists
+				if (!tm.containsKey(m)){
+					// False: Add key - value
+					tm.put(m, fileName);
+				}
+			}
+		}
+
+		return tm;
+	}
 
 	public TreeMap<String,ArrayList<String>> sort(HashMap<String,String> files, String regPattern){
 		// TreeMap store list of all identifiers

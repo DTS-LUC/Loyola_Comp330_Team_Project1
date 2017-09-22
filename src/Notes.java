@@ -1,12 +1,14 @@
 import java.util.*;
 
 public class Notes{
-	// Key: @identifier Value: fileName
+	// Key: @identifier Value: fileNames
 	TreeMap<String,ArrayList<String>> mentions = new TreeMap<String,ArrayList<String>>();
-	// Key: #identifier Value: fileName
+	// Key: #identifier Value: fileNames
 	TreeMap<String,ArrayList<String>> topics = new TreeMap<String,ArrayList<String>>();
-	// Key: fileName		Value: ^identifiers
-	TreeMap<String,ArrayList<String>> refs = new TreeMap<String,ArrayList<String>>();
+	// Key: id 				Value: fileName
+	TreeMap<String,String> ids = new TreeMap<String,String>();
+	// Key: fileName		sValue: ^identifiers
+	// TreeMap<String,ArrayList<String>> refs = new TreeMap<String,ArrayList<String>>();
 
 
 	// Methods for setting values
@@ -16,9 +18,15 @@ public class Notes{
 	public void setTopics(TreeMap<String,ArrayList<String>> topics){
 		this.topics = topics;
 	}
-	public void setRefs(TreeMap<String,ArrayList<String>> refs){
-		this.refs = refs;
+	// public void setURLSs(TreeMap<String,ArrayList<String>> urls){
+	// 	this.urls = urls;
+	// }
+	public void setIDs(TreeMap<String,String> ids){
+		this.ids = ids;
 	}
+	// public void setRefs(TreeMap<String,ArrayList<String>> refs){
+	// 	this.refs = refs;
+	// }
 
 	// Methods for retrieving all values
 	public TreeMap<String,ArrayList<String>> getAllMentions(){
@@ -27,9 +35,12 @@ public class Notes{
 	public TreeMap<String,ArrayList<String>> getAllTopics(){
 		return topics;
 	}
-	public TreeMap<String,ArrayList<String>> getAllRefs(){
-		return refs;
+	public TreeMap<String,String> getAllIDs(){
+		return ids;
 	}
+	// public TreeMap<String,ArrayList<String>> getAllRefs(){
+	// 	return refs;
+	// }
 
 	// Methods for retrieving select value
 	public TreeMap<String,ArrayList<String>> getMentions(ArrayList<String> search){
@@ -53,6 +64,18 @@ public class Notes{
 			selected = new ArrayList<String>();
 			selected = mentions.get("#" + s);
 			selection.put("#" + s, selected);
+		}
+
+		return selection;
+	}
+	public TreeMap<String,String> getIDs(ArrayList<String> search){
+		search.remove(0);
+		TreeMap<String,String> selection = new TreeMap<String,String>(String.CASE_INSENSITIVE_ORDER);
+		String selected;
+
+		for(String s:search) {
+			selected = ids.get("!" + s);
+			selection.put("!" + s, selected);
 		}
 
 		return selection;

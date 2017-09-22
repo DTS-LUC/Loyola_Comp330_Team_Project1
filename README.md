@@ -12,12 +12,17 @@
 #### @ [optional identifier] [optional identifier] ...
   * To return a list of all mentions use only "@"
   * User may search for as many mentions as desired
-  * Identifiers must be seperated by spaces
+  * Identifiers must be separated by spaces
 
 #### # [optional identifier] [optional identifier] ...
   * To return a list of all keywords use only "#"
   * User may search for as many keyword as desired
-  * Identifiers must be seperated by spaces
+  * Identifiers must be separated by spaces
+
+#### ! [optional identifier] [optional identifier] ...
+  * To return a list of all ids use only "!"
+  * User may search for as many ids as desired
+  * Identifiers must be separated by spaces
 
 ## Resources
 ### Some Data Structures Used
