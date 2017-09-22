@@ -9,12 +9,12 @@
 5. Enter "Q" or "q" to quit
 
 ## Command List
-### * "@" [optional identifier] [optional identifier] ...
+#### @ [optional identifier] [optional identifier] ...
   * To return a list of all mentions use only "@"
   * User may search for as many mentions as desired
   * Identifiers must be seperated by spaces
   
-### * "#" [optional identifier] [optional identifier] ...
+#### # [optional identifier] [optional identifier] ...
   * To return a list of all keywords use only "#"
   * User may search for as many keyword as desired
   * Identifiers must be seperated by spaces
