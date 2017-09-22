@@ -15,8 +15,6 @@ public class NoteTakerApp{
 	public static void main(String[] args) {
 
 		Scanner input = new Scanner(System.in);
-		boolean runApp = true;
-
 
 		NoteRetriever retriever = new NoteRetriever();
 		NoteSorter		sorter		= new NoteSorter();
@@ -36,6 +34,7 @@ public class NoteTakerApp{
 		notes.setTopics(sorter.sort(files, "#[a-zA-Z_][0-9a-zA-Z_]*"));
 
 		//Command Line Interface
+		boolean runApp = true;
 		ArrayList<String> listArgs;
 		String userArgs;
 		String cmd;
@@ -49,7 +48,11 @@ public class NoteTakerApp{
 			// Swtich cases match character from input[0]
 			cmd = listArgs.get(0);
 			if (numArgs == 1) {
+<<<<<<< HEAD
 				// Get all
+=======
+				// Call all
+>>>>>>> a78100e5ca997038ad748d352f41220c8ae99074
 				switch (cmd){
 					case "@" :
 						printTree(notes.getAllMentions());
@@ -87,14 +90,7 @@ public class NoteTakerApp{
 				runApp = false;
 			}
 		}
-
-
-		// Call methods in Notes
-		// Swtich cases match character from input[0]
-
 	}
 }
 
-// printTree(notes.getAllMentions());
-// printTree(notes.getAllTopics());
-// printTree(sorter.sort(files, "\\^[a-zA-Z_][0-9a-zA-Z_]*"));
+//"\\^[a-zA-Z_][0-9a-zA-Z_]*"

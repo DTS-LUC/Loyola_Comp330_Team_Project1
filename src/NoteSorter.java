@@ -3,7 +3,7 @@ import java.util.*;
 
 public class NoteSorter{
 
-	// public String findID(HashMap<String,String> files, String regPattern){
+	// public ArrayList<String> getIDs(HashMap<String,String> files){
 	//
 	// }
 
@@ -47,7 +47,7 @@ public class NoteSorter{
 	}
 
 	public static HashSet<String> regexChecker(String theRegex, String str2Check){
-
+		// Using HashSet to ensure unique values
 		HashSet<String> matches = new HashSet<String>();
 
 		Pattern checkRegex = Pattern.compile(theRegex);

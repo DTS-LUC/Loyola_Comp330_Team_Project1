@@ -1,4 +1,4 @@
-# COMP 330 - Homework - Team Project 1 
+# COMP 330 - Homework - Team Project 1
 
 This first assignment is aimed at ensuring basic preparation in data structures and object-oriented principles. It is done as a team so teamwork is emphasized from the beginning. Team members will need to demonstrate not only the ability to write a working program but to begin using best practices in modern software engineering to demonstrate daily progress on the project. This includes, but is not limited to version control (using GitHub), basic task management, testing, and documentation.
 
@@ -59,7 +59,3 @@ This is very preliminary...
 * Be able to generate a report of all notes, organized by keyword
 * Be able to report notes by mention/keywords selectively
 * Report of all notes in topological order
-
-## Resources
-* https://www.ntu.edu.sg/home/ehchua/programming/howto/Regexe.html
-* http://www.newthinktank.com/2012/02/java-video-tutorial-19/
