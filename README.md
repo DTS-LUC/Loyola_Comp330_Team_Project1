@@ -1,4 +1,4 @@
-# COMP 330 - Homework - Team Project 1 
+# COMP 330 - Homework - Team Project 1
 ###### Team T - Donald Stolz & Michael Sukantawanich
 
 ## User Instructions
@@ -13,8 +13,19 @@
   * To return a list of all mentions use only "@"
   * User may search for as many mentions as desired
   * Identifiers must be seperated by spaces
-  
+
 #### # [optional identifier] [optional identifier] ...
   * To return a list of all keywords use only "#"
   * User may search for as many keyword as desired
   * Identifiers must be seperated by spaces
+
+## Resources
+### Some Data Structures Used
+  * https://stackoverflow.com/questions/8229473/hashmap-one-key-multiple-values
+  * https://www.tutorialspoint.com/java/java_treemap_class.htm
+### Regex
+  * https://www.ntu.edu.sg/home/ehchua/programming/howto/Regexe.html
+  * http://www.newthinktank.com/2012/02/java-video-tutorial-19/
+### Other
+  * https://stackoverflow.com/questions/11726023/split-string-into-individual-words-java
+  * https://stackoverflow.com/questions/5757202/how-would-i-print-all-values-in-a-treemap
