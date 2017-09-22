@@ -32,10 +32,29 @@ public class Notes{
 	}
 
 	// Methods for retrieving select value
-	// public TreeMap<String,ArrayList<String>> getMentions(/*ArrayList?*/){
-	//
-	// }
-	// public TreeMap<String,ArrayList<String>> getTopics(/*ArrayList?*/){
-	//
-	// }
+	public TreeMap<String,ArrayList<String>> getMentions(ArrayList<String> search){
+		search.remove(0);
+		TreeMap<String,ArrayList<String>> selection = new TreeMap<String,ArrayList<String>>(String.CASE_INSENSITIVE_ORDER);
+		ArrayList<String> selected;
+
+		for(String s:search) {
+			selected = new ArrayList<String>(mentions.get("@" + s));
+			selection.put("@" + s, selected);
+		}
+
+		return selection;
+	}
+	public TreeMap<String,ArrayList<String>> getTopics(ArrayList<String> search){
+		search.remove(0);
+		TreeMap<String,ArrayList<String>> selection = new TreeMap<String,ArrayList<String>>(String.CASE_INSENSITIVE_ORDER);
+		ArrayList<String> selected;
+
+		for(String s:search) {
+			selected = new ArrayList<String>();
+			selected = mentions.get("#" + s);
+			selection.put("#" + s, selected);
+		}
+
+		return selection;
+	}
 }

@@ -3,6 +3,7 @@ import java.util.*;
 public class NoteTakerApp{
 
 	public static void printTree(TreeMap<String,ArrayList<String>> tm){
+
 		for(Map.Entry<String,ArrayList<String>> entry : tm.entrySet()) {
 		  String key = entry.getKey();
 		  ArrayList<String> value = entry.getValue();
@@ -37,6 +38,7 @@ public class NoteTakerApp{
 		//Command Line Interface
 		ArrayList<String> listArgs;
 		String userArgs;
+		String cmd;
 		int numArgs;
 		while(runApp){
 			System.out.println("Enter a command or \"Q/q\" to quit:");
@@ -44,10 +46,9 @@ public class NoteTakerApp{
 
 			listArgs = new ArrayList<String>(Arrays.asList(userArgs.split(" ")));
 			numArgs = listArgs.size();
-
+			cmd = listArgs.get(0);
 			if (numArgs == 1) {
-				// System.out.println(listArgs.get(0));
-				switch (listArgs.get(0)){
+				switch (cmd){
 					case "@" :
 						printTree(notes.getAllMentions());
 						break;
@@ -64,6 +65,21 @@ public class NoteTakerApp{
 			}
 			else if (numArgs > 1) {
 				//Call selectively
+				switch (cmd){
+					case "@" :
+						printTree(notes.getMentions(listArgs));
+						break;
+					case "#" :
+						printTree(notes.getTopics(listArgs));
+						break;
+					case "Q" :
+					case "q" :
+						runApp = false;
+						break;
+					default:
+						System.out.println("Please enter a valid command");
+				}
+
 			}
 			else{
 				runApp = false;

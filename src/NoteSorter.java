@@ -11,7 +11,7 @@ public class NoteSorter{
 		// TreeMap store list of all identifiers
 		// Key: identifier 	Value: fileName(s);
 		// Key: String			Value: Arraylist to dynamically add Strings
-		TreeMap<String,ArrayList<String>> tm = new TreeMap<String,ArrayList<String>>(String.CASE_INSENSITIVE_ORDER); // '@'
+		TreeMap<String,ArrayList<String>> tm = new TreeMap<String,ArrayList<String>>(String.CASE_INSENSITIVE_ORDER);
 
 		HashSet<String> tmKeys = new HashSet<String>();
 
