@@ -1,4 +1,5 @@
 import java.util.*;
+import java.io.File;
 
 public class NoteTakerApp{
 
@@ -32,8 +33,18 @@ public class NoteTakerApp{
 		HashMap<String, String> files = new HashMap<String, String>();
 
 		//Get directory path from user
-		System.out.println("Enter directory path:");
-		String dirPath = input.nextLine();
+		boolean validDir = false;
+		String dirPath = "";
+		while(!validDir){
+			System.out.println("Enter directory path:");
+			dirPath = input.nextLine();
+			File f = new File(dirPath);
+			if(f.exists() && f.isDirectory()){
+          validDir = true;
+      }else{
+          System.err.println("Doesn't exist or is not a directory.");
+				}
+			}
 		// dirPath = "/Users/don/Loyola_Comp330_Team_Project1/TestNotes";
 
 		// Send directory path to NoteRetriever
