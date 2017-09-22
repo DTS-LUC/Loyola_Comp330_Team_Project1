@@ -46,8 +46,10 @@ public class NoteTakerApp{
 
 			listArgs = new ArrayList<String>(Arrays.asList(userArgs.split(" ")));
 			numArgs = listArgs.size();
+			// Swtich cases match character from input[0]
 			cmd = listArgs.get(0);
 			if (numArgs == 1) {
+				// Get all
 				switch (cmd){
 					case "@" :
 						printTree(notes.getAllMentions());
@@ -64,7 +66,7 @@ public class NoteTakerApp{
 				}
 			}
 			else if (numArgs > 1) {
-				//Call selectively
+				// Get selectively
 				switch (cmd){
 					case "@" :
 						printTree(notes.getMentions(listArgs));
