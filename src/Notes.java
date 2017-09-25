@@ -1,4 +1,4 @@
- import java.util.*;
+import java.util.*;
 
 public class Notes{
 	// Key: @identifier Value: fileNames
@@ -42,8 +42,8 @@ public class Notes{
 		ArrayList<String> selected;
 
 		for(String s:search) {
-			selected = new ArrayList<String>(mentions.get(s));
-			selection.put( s, selected);
+			selected = new ArrayList<String>(mentions.get("@" +s));
+			selection.put( "@" + s, selected);
 		}
 
 		return selection;
@@ -55,8 +55,8 @@ public class Notes{
 
 		for(String s:search) {
 			selected = new ArrayList<String>();
-			selected = mentions.get(  s);
-			selection.put(  s, selected);
+			selected = mentions.get( "#" + s);
+			selection.put( "#" + s, selected);
 		}
 
 		return selection;
@@ -67,8 +67,8 @@ public class Notes{
 		String selected;
 
 		for(String s:search) {
-			selected = ids.get(   s);
-			selection.put(  s, selected);
+			selected = ids.get( "!" + s);
+			selection.put( "!" + s, selected);
 		}
 
 		return selection;
